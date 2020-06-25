@@ -1,3 +1,6 @@
+V1.0.6
+- TV2 teljes filmek javitva
+
 V1.0.5
 - Moziverzum, JockyTv
 - Zenebutik, KiwiTv javitva
