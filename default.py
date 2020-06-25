@@ -23,7 +23,7 @@ def main_folders():
     return
 
 def musor_listaTV2():  #TV2
-    addDir('[COLOR orange]''Teljes filmek''[/COLOR]', url + '/musoraink/teljes_filmek/oldal', 24, os.path.join(artPath, 'movie.png'), fanart, '', '1')
+    addDir('[COLOR orange]''Teljes filmek''[/COLOR]', url + '/search?keyword=teljes+film', 24, os.path.join(artPath, 'movie.png'), fanart, '', '1')
     addDir('[COLOR orange]''Videók''[/COLOR]', url + '/videok/oldal', 25, os.path.join(artPath, 'video.png'), fanart, '', '1')
     r = client.request(url + '/videok/')
     m = re.compile('value="([0-9]+)" > (.+?) </').findall(r)
@@ -100,17 +100,22 @@ def epizod_lista_TV2():
         addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 7, '', '', description, str(int(page) + 1))
 
 def tv2_filmek():
-    r = client.request(url + page)
-    result = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
-    result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem_nagy'})
+    #r = client.request(url + page).decode('iso-8859-1').encode('utf8')
+    r = client.request(url).decode('iso-8859-2').encode('utf-8')
+    result = client.parseDOM(r, 'div', attrs={'class': 'oldalbefoglalo'})[0]
+    result1 = client.parseDOM(result, 'div', attrs={'class': 'listaelem_kereses '})
+    result2 = client.parseDOM(result, 'div', attrs={'class': 'listaelem_kereses  margin10b'})
    
-    for i in result:
+    for i in result1+result2:
         try:
+            #xbmcgui.Dailog().ok("akarmi", "barmi")
             name = client.parseDOM(i, 'a', attrs={'class': 'cim'})[0]
-            name = client.replaceHTMLCodes(name)
-            link = client.parseDOM(i, 'a', ret='href')[0]
-            img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/musoraink/teljes_filmek/oldal' + link, 20, 'https://tv2.hu/' + img,  '', 'TV2', IsPlayable=True)
+            matches=re.match(r'(.*) - TELJES FILM(.*)', name, re.MULTILINE+re.IGNORECASE)
+            if matches:
+                name = matches.group(1).encode('iso-8859-2')
+                link = client.parseDOM(i, 'a', ret='href')[0]
+                img = client.parseDOM(i, 'img', ret='src')[0]
+                addFile(name, 'https://tv2.hu/musoraink/teljes_filmek/oldal' + link, 20, 'https://tv2.hu/' + img,  '', 'TV2', IsPlayable=True)
         except:
             pass
     if 'következő' in r:
