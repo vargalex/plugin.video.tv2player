@@ -4,45 +4,45 @@ from resources.lib import client, control
 
 current_date = datetime.datetime.now().strftime("%Y-%m-%d")
 artPath = control.artPath()
-
+base_url = "https://tv2.hu"
 def main_folders():
-    addDir('TV2', 'http://tv2.hu', 1, os.path.join(artPath, 'tv2.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('TV2 Klasszikusok', 'http://tv2.hu/tv2klasszikusok/', 2, os.path.join(artPath, 'tv2class.jpg'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
-    addDir('SuperTV2', 'https://tv2.hu/supertv2', 3, os.path.join(artPath, 'supertv2.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
-    addDir('FEM3', 'http://fem3.hu', 19, os.path.join(artPath, 'fem3.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
-    addDir('Mozi+', 'https://tv2.hu/moziplusztv/', 4, os.path.join(artPath, 'moziplusz.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
-    addDir('Izaura TV', 'http://izauratv.hu', 5, os.path.join(artPath, 'izauratv.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
-    addDir('Prime', 'http://tv2csoport.hu/prime/videok/oldal', 13, os.path.join(artPath, 'prime.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('Lichi TV', 'https://tv2.hu/lichitv/videok/oldal', 14, os.path.join(artPath, 'lichitv.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('Kiwi TV', 'https://tv2.hu/kiwitv/videok/oldal', 15, os.path.join(artPath, 'kiwitv.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('Zenebutik', 'https://tv2.hu/zenebutik/videok/oldal', 17, os.path.join(artPath, 'zenebutik.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('Humor+', 'http://humorplusz.hu/videok/oldal', 18, os.path.join(artPath, 'humorplusz.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('Jocky TV', 'http://jockytv.hu', 22, os.path.join(artPath, 'jockytv.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('Moziverzum', 'https://tv2.hu/moziverzum/filmek/oldal', 16, os.path.join(artPath, 'moziverzum.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
-    addDir('Tények', 'https://tenyek.hu', 21, os.path.join(artPath, 'tenyek.jpg'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('TV2', base_url, 1, os.path.join(artPath, 'tv2.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('TV2 Klasszikusok', '%s/tv2klasszikusok/' % base_url, 2, os.path.join(artPath, 'tv2class.jpg'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
+    addDir('SuperTV2', '%s/supertv2' % base_url, 3, os.path.join(artPath, 'supertv2.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
+    addDir('FEM3', '%s/fem3' % base_url, 19, os.path.join(artPath, 'fem3.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
+    addDir('Mozi+', '%s/moziplusztv/videok/oldal' % base_url, 11, os.path.join(artPath, 'moziplusz.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('Izaura TV', '%s/izauratv' % base_url, 5, os.path.join(artPath, 'izauratv.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '')
+    addDir('Prime', '%s/prime/search/' % base_url, 13, os.path.join(artPath, 'prime.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('TV2 Séf', '%s/tv2sef/search/' % base_url, 14, os.path.join(artPath, 'sef.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('TV2 Kids', '%s/tv2kids/search/' % base_url, 15, os.path.join(artPath, 'kids.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('Zenebutik', '%s/zenebutik/search/' % base_url, 17, os.path.join(artPath, 'zenebutik.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('TV2 Comedy', '%s/tv2comedy/search/' % base_url, 18, os.path.join(artPath, 'comedy.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('Jocky TV', '%s/jockytv/search/' % base_url, 23, os.path.join(artPath, 'jockytv.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
+    addDir('Moziverzum', '%s/moziverzum/search/' % base_url, 16, os.path.join(artPath, 'moziverzum.png'), os.path.join(artPath, 'tv2csop.jpg'), '', '1')
     return
 
 def musor_listaTV2():  #TV2
-    addDir('[COLOR orange]''Teljes filmek''[/COLOR]', url + '/search?keyword=teljes+film', 24, os.path.join(artPath, 'movie.png'), fanart, '', '1')
-    addDir('[COLOR orange]''Videók''[/COLOR]', url + '/videok/oldal', 25, os.path.join(artPath, 'video.png'), fanart, '', '1')
+    addDir('[COLOR orange]''Teljes filmek''[/COLOR]', url + '/search/teljes+film/oldal', 24, os.path.join(artPath, 'movie.png'), fanart, '', '1')
+    addDir('[COLOR orange]''Összes videó''[/COLOR]', url, 7, iconimage, fanart, '', '1')
     r = client.request(url + '/videok/')
     m = re.compile('value="([0-9]+)" > (.+?) </').findall(r)
     for musor_id, musor_cim in m:
-        try: name = client.replaceHTMLCodes(musor_cim.decode('utf-8'))
-        except: name = musor_cim
+        try: name = client.replaceHTMLCodes(musor_cim.decode('utf-8')).strip()
+        except: name = musor_cim.strip()
         addDir(name.encode('utf-8'), url, 7, iconimage, fanart, musor_id, '1')
 
 def musor_lista_sTV2(): #SuperTv2
     addDir('[COLOR orange]''Teljes filmek''[/COLOR]', url + '/musoraink/teljes_filmek/oldal', 26, os.path.join(artPath, 'movie.png'), fanart, '', '1')
-    addDir('[COLOR orange]''Videók''[/COLOR]', url + '/videok/oldal', 27, os.path.join(artPath, 'video.png'), fanart, '', '1')
+    addDir('[COLOR orange]''Összes videó''[/COLOR]', url, 9, iconimage, fanart, '', '1')
     r = client.request(url + '/videok/')
     m = re.compile('value="([0-9]+)" > (.+?) </').findall(r)
     for musor_id, musor_cim in m:
-        try: name = client.replaceHTMLCodes(musor_cim.decode('utf-8'))
-        except: name = musor_cim
+        try: name = client.replaceHTMLCodes(musor_cim.decode('utf-8')).strip()
+        except: name = musor_cim.musor_cim.strip()
         addDir(name.encode('utf-8'), url, 9, iconimage, fanart, musor_id, '1')
 
 def musor_lista_fem3():
+    addDir('[COLOR orange]''Összes videó''[/COLOR]', url, 10, iconimage, fanart, '', '1')
     r = client.request(url + '/videok/')
     m = re.compile('value="([0-9]+)" > (.+?) </').findall(r)
     for musor_id, musor_cim in m:
@@ -59,14 +59,13 @@ def musor_lista_TV2_class(): #TV2 Klasszikusok
     for name, link in m:
         try: name = client.replaceHTMLCodes(name)
         except: pass
-        addDir(name.encode('utf-8'), link, 8, iconimage, fanart, '', '1')
+        addDir(name.encode('utf-8'), "%s%s" % (base_url, link), 8, iconimage, fanart, '', '1')
 
 def musor_lista_mplus(): #Mozi+
-    addDir('[COLOR orange]''Teljes filmek''[/COLOR]', url + 'teljes_filmek/oldal', 11, os.path.join(artPath, 'movie.png'), fanart, '', '1')
     addDir('[COLOR orange]''Videók''[/COLOR]', url + 'videok/oldal', 11, os.path.join(artPath, 'video.png'), fanart, '', '1')
 
 def musor_lista_izaura():
-    addDir('[COLOR orange]''Videók''[/COLOR]', url + '/videok/oldal', 28, os.path.join(artPath, 'video.png'), fanart, '', '1')
+    addDir('[COLOR orange]''Videók''[/COLOR]', url + '/search/', 28, os.path.join(artPath, 'video.png'), fanart, '', '1')
     r = client.request(url)
     m = client.parseDOM(r, 'div', attrs={'id': 'dropdown_sorozataink'})
     m = client.parseDOM(m, 'a'),client.parseDOM(m, 'a', ret='href')
@@ -74,18 +73,23 @@ def musor_lista_izaura():
     for name, link in m:
         try: name = client.replaceHTMLCodes(name)
         except: pass
-        addDir(name.encode('utf-8'),url + link + '/oldal', 12, iconimage, fanart, '', '1')
-   
-def musor_lista_jockytv():
-    addDir('[COLOR orange]''Teljes filmek''[/COLOR]', url + '/cimke/teljes filmek/oldal', 23, os.path.join(artPath, 'movie.png'), fanart, '', '1')
-    addDir('[COLOR orange]''Videók''[/COLOR]', url + '/search/sorozat/oldal', 23, os.path.join(artPath, 'video.png'), fanart, '', '1')	
-		
+        addDir(name.encode('utf-8'), "%s%s/oldal" % (base_url, link), 12, iconimage, fanart, '', '1')
+   	
 ########################
 
 def epizod_lista_TV2():
-    r = client.request(url + '/videok/oldal' + page + '?keyword=&datumtol=2000-01-01&datumig=' + current_date + '&musorid=' + description)
-    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*balra\s*'})
-    result += client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*balra\s*margin10b\s*'})
+    r = client.request("%s/videok/oldal%s?keyword=%s&datumtol=2000-01-01&datumig=%s&musorid=%s" %(url, page, keyword, current_date, description))
+    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi[^"]*'})
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '7')
+    else:
+        if description:
+            musorid = client.parseDOM(r, 'select', attrs={'name': 'musorid'})[0]
+            option = client.parseDOM(musorid, 'option', attrs={'value': description})[0].strip().encode('utf-8')
+        else:
+            option = "Összes videó"
+        addDir('[COLOR orange]''%s szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % (option, urllib.unquote_plus(keyword)), url, 7, os.path.join(artPath, 'tv2.png'), '', description, page, keyword)
 
     for i in result:
         try:
@@ -93,56 +97,32 @@ def epizod_lista_TV2():
             cim = client.parseDOM(i, 'div', attrs={'class': 'cim'})[0]
             name = client.parseDOM(cim, 'a')[0]
             link = client.parseDOM(cim, 'a', ret='href')[0]
-            addFile(name.encode('utf-8'), 'http://tv2.hu' + link, 20, 'http://tv2.hu' + img, '', 'TV2', IsPlayable=True)
+            addFile(name.encode('utf-8'), '%s%s' % (base_url, link), 20, "%s%s" % (base_url, img), '', 'TV2', IsPlayable=True)
         except:
             pass
     if 'következő oldal' in r or 'következő  &raquo;' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 7, '', '', description, str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 7, '', '', description, str(int(page) + 1), keyword)
 
 def tv2_filmek():
-    #r = client.request(url + page).decode('iso-8859-1').encode('utf8')
-    r = client.request(url).decode('iso-8859-2').encode('utf-8')
+    r = client.request("%s%s" % (url, page)).decode('iso-8859-2').encode('utf-8')
     result = client.parseDOM(r, 'div', attrs={'class': 'oldalbefoglalo'})[0]
-    result1 = client.parseDOM(result, 'div', attrs={'class': 'listaelem_kereses '})
-    result2 = client.parseDOM(result, 'div', attrs={'class': 'listaelem_kereses  margin10b'})
-   
-    for i in result1+result2:
+    result = client.parseDOM(result, 'div', attrs={'class': 'listaelem_kereses[^"]*'})
+    for i in result:
         try:
-            #xbmcgui.Dailog().ok("akarmi", "barmi")
-            name = client.parseDOM(i, 'a', attrs={'class': 'cim'})[0]
-            matches=re.match(r'(.*) - TELJES FILM(.*)', name, re.MULTILINE+re.IGNORECASE)
-            if matches:
-                name = matches.group(1).encode('iso-8859-2')
-                link = client.parseDOM(i, 'a', ret='href')[0]
-                img = client.parseDOM(i, 'img', ret='src')[0]
-                addFile(name, 'https://tv2.hu/musoraink/teljes_filmek/oldal' + link, 20, 'https://tv2.hu/' + img,  '', 'TV2', IsPlayable=True)
+            name = client.parseDOM(i, 'a', attrs={'class': 'cim'})[0].encode('iso-8859-2')
+            link = client.parseDOM(i, 'a', ret='href')[0]
+            img = client.parseDOM(i, 'img', ret='src')[0]
+            addFile(name, '%s%s' % (base_url, link), 20, "%s%s" % (base_url, img),  '', 'TV2', IsPlayable=True)
         except:
             pass
-    if 'következő' in r:
+
+    if '/search/teljes film/oldal%s' % str(int(page)+1) in r:
         addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 24, '', '', '', str(int(page) + 1))
     return		
 		
-def tv2_videok():	
-    r = client.request(url + page)
-    result = client.parseDOM(r, 'div', attrs={'id': 'leftblock'})
-    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi balra  '})
-    result += client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi balra  margin10b  '})
 
-    for i in result:
-        try:
-            img = client.parseDOM(i, 'img', ret='src')[0]
-            cim = client.parseDOM(i, 'div', attrs={'class': 'cim'})[0]
-            name = client.parseDOM(cim, 'a')[0]
-            link = client.parseDOM(cim, 'a', ret='href')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/videok/oldal' + link, 20, 'https://tv2.hu/' + img,  '', 'TV2', IsPlayable=True)
-        except:
-            pass
-    if 'class="pager"' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 25, '', '', '', str(int(page) + 1))
-    return		
-	
 def epizod_lista_TV2_class():
-    r = client.request('http://tv2.hu' + url + '/oldal' + page)
+    r = client.request(url + '/oldal' + page)
     result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*'})
     result += client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*margin10b\s*'})
     
@@ -152,24 +132,33 @@ def epizod_lista_TV2_class():
             name = client.parseDOM(name, 'a')
             img = client.parseDOM(i, 'img', ret='src')[0]
             link = client.parseDOM(i, 'a', ret='href')[0]
-            addFile(name[0].encode('utf-8') + ' - ' + name[1].encode('utf-8'), 'http://tv2.hu' + link, 20, 'http://tv2.hu' + img, 'TV2 Klasszikusok', '', IsPlayable=True)
+            addFile(name[0].encode('utf-8') + ' - ' + name[1].encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), 'TV2 Klasszikusok', '', IsPlayable=True)
         except:
             pass
     if 'következő oldal' in r or 'következő  &raquo;' in r:
         addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 8, '', '', '', str(int(page) + 1))
                       
 def epizod_lista_sTV2():
-    r = client.request(url + '/videok/oldal' + page + '?keyword=&datumtol=2000-01-01&datumig=' + current_date + '&musorid=' + description)
-    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*'})
-    result += client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*margin10b\s*'})
- 
+    r = client.request("%s/videok/oldal%s?keyword=%s&datumtol=2000-01-01&datumig=%s&musorid=%s" % (url, page, keyword, current_date, description))
+    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi[^"]*'})
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '7')
+    else:
+        if description:
+            musorid = client.parseDOM(r, 'select', attrs={'name': 'musorid'})[0]
+            option = client.parseDOM(musorid, 'option', attrs={'value': description})[0].strip().encode('utf-8')
+        else:
+            option = "Összes videó"
+        addDir('[COLOR orange]''%s szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % (option, urllib.unquote_plus(keyword)), url, 7, os.path.join(artPath, 'supertv2.png'), '', description, page, keyword)
+
     for i in result:
         try:
             img = client.parseDOM(i, 'img', ret='src')[0]
             cim = client.parseDOM(i, 'div', attrs={'class': 'cim'})[0]
             name = client.parseDOM(cim, 'a')[0]
             link = client.parseDOM(cim, 'a', ret='href')[0]
-            addFile(name.encode('utf-8'), url + link, 20, 'https://tv2.hu' + img, '', 'SuperTV2', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'SuperTV2', IsPlayable=True)
         except:
             pass
     if 'következő oldal' in r or 'következő  &raquo;' in r:
@@ -186,7 +175,7 @@ def supertv2_filmek():
             name = client.replaceHTMLCodes(name)
             link = client.parseDOM(i, 'a', ret='href')[0]
             img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/supertv2/musoraink/teljes_filmek' + link, 20, 'https://tv2.hu/' + img,  '', 'TV2', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img),  '', 'TV2', IsPlayable=True)
         except:
             pass
     if 'következő' in r:
@@ -205,7 +194,7 @@ def supertv2_videok():
             cim = client.parseDOM(i, 'div', attrs={'class': 'cim'})[0]
             name = client.parseDOM(cim, 'a')[0]
             link = client.parseDOM(cim, 'a', ret='href')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/supertv2' + link, 20, 'https://tv2.hu/' + img,  '', 'TV2', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" %(base_url, link), 20, "%s%s" % (base_url, img),  '', 'TV2', IsPlayable=True)
         except:
             pass
     if 'class="pager"' in r:
@@ -213,23 +202,37 @@ def supertv2_videok():
     return		
 		
 def epizod_lista_fem3():
-    r = client.request(url + '/videok/oldal' + page + '?keyword=&datumtol=2000-01-01&datumig=' + current_date + '&musorid=' + description)
-    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*'})
-    result += client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi\s*margin10b\s*'})
+    r = client.request("%s/videok/oldal%s?keyword=%s&datumtol=2000-01-01&datumig=%s&musorid=%s" % (url, page, keyword, current_date, description))
+    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_kicsi[^"]*'})
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '10')
+    else:
+        if description:
+            musorid = client.parseDOM(r, 'select', attrs={'name': 'musorid'})[0]
+            option = client.parseDOM(musorid, 'option', attrs={'value': description})[0].strip().encode('utf-8')
+        else:
+            option = "Összes videó"
+        addDir('[COLOR orange]''%s szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % (option, urllib.unquote_plus(keyword)), url, 7, os.path.join(artPath, 'supertv2.png'), '', description, page, keyword)
 
     for i in result:
         try:
             name = client.parseDOM(i, 'div')
             img = client.parseDOM(i, 'img', ret='src')[0]
             link = client.parseDOM(i, 'a', ret='href')[0]
-            addFile(name[0].encode('utf-8') + ' - ' + name[1].encode('utf-8'), url + link, 20, 'https://tv2.hu' + img, '', 'FEM3', IsPlayable=True)
+            addFile(name[0].encode('utf-8') + ' - ' + name[1].encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'FEM3', IsPlayable=True)
         except:
             pass
     if 'következő oldal' in r or 'következő  &raquo;' in r:
         addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 10, '', '', description, str(int(page) + 1))
 
 def epizod_lista_mplus():
-    r = client.request(url + page)
+    r = client.request("%s%s?keyword=%s" % (url, page, keyword))
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '11')
+    else:
+        addDir('[COLOR orange]''Mozi+ szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 11, os.path.join(artPath, 'moziplusz.png'), '', description, page, keyword)
     r = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
     r = r[0].replace('\n','')
     result = zip(client.parseDOM(r, 'a', ret='href'),client.parseDOM(r, 'a'))
@@ -241,11 +244,11 @@ def epizod_lista_mplus():
             name = client.replaceHTMLCodes(name)
             img = client.parseDOM(i[1], 'img', ret='src')[0]
             img = urlparse.urljoin(url, img)
-            addFile(name.encode('utf-8'), 'https://tv2.hu/moziplusztv/' + i[0], 20, img, '', 'Mozi+', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, i[0]), 20, img, '', 'Mozi+', IsPlayable=True)
         except:
             pass
     if '/pager_next' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 11, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 11, '', '', description, str(int(page) + 1), keyword)
 
 def epizod_lista_izaura():
     r = client.request(url + page)
@@ -259,7 +262,7 @@ def epizod_lista_izaura():
             name = client.replaceHTMLCodes(name)
             link = client.parseDOM(i, 'a', ret='href')[0]
             img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'http://izauratv.hu' + link, 20, 'https://tv2.hu' + img, '', 'Izaura TV', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'Izaura TV', IsPlayable=True)
         except:
             pass
     if '/pager_next' in r:
@@ -267,7 +270,12 @@ def epizod_lista_izaura():
     return
 
 def izaura_videok():
-    r = client.request(url + page)
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '28')
+    else:
+        addDir('[COLOR orange]''Izaura videók szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 28, os.path.join(artPath, 'izaura.png'), '', description, page, keyword)
+
     result = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
     result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem'})
 
@@ -277,15 +285,21 @@ def izaura_videok():
             name = client.replaceHTMLCodes(name)
             link = client.parseDOM(i, 'a', ret='href')[0]
             img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/izauratv/videok/oldal' + link, 20, 'https://tv2.hu' + img, '', 'Izaura TV', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'Izaura TV', IsPlayable=True)
         except:
             pass
     if '/pager_next' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 28, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 28, '', '', description, str(int(page) + 1), keyword)
     return
 
 def epizod_lista_prime():
-    r = client.request(url + page)
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '13')
+    else:
+        addDir('[COLOR orange]''Prime szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 13, os.path.join(artPath, 'prime.png'), '', description, page, keyword)
+
     result = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
     result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem'})
 
@@ -295,15 +309,21 @@ def epizod_lista_prime():
             name = client.replaceHTMLCodes(name)
             link = client.parseDOM(i, 'a', ret='href')[0]
             img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'http://tv2csoport.hu' + link, 20, 'http://tv2csoport.hu' + img, '', 'Prime', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'Prime', IsPlayable=True)
         except:
             pass
     if '/pager_next' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 13, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 13, '', '', description, str(int(page) + 1), keyword)
     return
 
-def epizod_lista_chili():
-    r = client.request(url + page)
+def epizod_lista_sef():
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '14')
+    else:
+        addDir('[COLOR orange]''TV2 Séf szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 14, os.path.join(artPath, 'sef.png'), '', description, page, keyword)
+
     result = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
     result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem'})
 
@@ -314,15 +334,21 @@ def epizod_lista_chili():
             name = client.replaceHTMLCodes(name)
             link = client.parseDOM(i, 'a', ret='href')[0]
             img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/lichitv/' + link, 20, 'https://tv2.hu' + img, '', 'Lichi TV', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'TV2 Séf', IsPlayable=True)
         except:
             pass
     if '/pager_next' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 14, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 14, '', '', description, str(int(page) + 1), keyword)
     return
 	
-def epizod_lista_kiwitv():
-    r = client.request(url + page)
+def epizod_lista_kids():
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '15')
+    else:
+        addDir('[COLOR orange]''TV2 Kids szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 15, os.path.join(artPath, 'kids.png'), '', description, page, keyword)
+
     r = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
     r = r[0].replace('\n','')
     result = zip(client.parseDOM(r, 'a', ret='href'),client.parseDOM(r, 'a'))
@@ -333,16 +359,22 @@ def epizod_lista_kiwitv():
             name = client.replaceHTMLCodes(name)
             img = client.parseDOM(i[1], 'img', ret='src')[0]
             img = urlparse.urljoin(url, img)
-            addFile(name.encode('utf-8'), 'https://tv2.hu/kiwitv/videok/oldal' + i[0], 20, img , '', 'Kiwi TV', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, i[0]), 20, img , '', 'Kiwi TV', IsPlayable=True)
         
         except:
             pass
     if '/pager_next' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 15, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 15, '', '', description, str(int(page) + 1), keyword)
     return
 	
 def epizod_lista_zenebutik():
-    r = client.request(url + page)
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '17')
+    else:
+        addDir('[COLOR orange]''Zenebutik szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 17, os.path.join(artPath, 'zenebutik.png'), '', description, page, keyword)
+
     result = client.parseDOM(r, 'div', attrs={'class': 'pagewrapper'})
     result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem'})
 
@@ -352,33 +384,42 @@ def epizod_lista_zenebutik():
             name = client.replaceHTMLCodes(name)
             link = client.parseDOM(i, 'a', ret='href')[0]
             img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/zenebutik/videok/oldal' + link, 20, 'https://tv2.hu' + img, '', 'Zenebutik', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'Zenebutik', IsPlayable=True)
         except:
             pass
     if '/assets/next' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 17, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 17, '', '', description, str(int(page) + 1), keyword)
     return
 	
-def epizod_lista_humorplusz():
-    r = client.request(url + page)
+def epizod_lista_comedy():
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '18')
+    else:
+        addDir('[COLOR orange]''TV2 Comedy szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 18, os.path.join(artPath, 'comedy.png'), '', description, page, keyword)
     result = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
-    result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem_nagy'})
+    result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem'})
 
     for i in result:
         try:
-            name = client.parseDOM(i, 'a', attrs={'class': 'cim'})[0]
-            name = client.replaceHTMLCodes(name)
-            link = client.parseDOM(i, 'a', ret='href')[0]
+            cim = client.parseDOM(i, 'div', attrs={'class': 'cim'})[0]
+            name = client.replaceHTMLCodes(client.parseDOM(cim, 'a')[0])
+            link = client.parseDOM(cim, 'a', ret='href')[0]
             img = client.parseDOM(i, 'img', ret='src')[0]
-            addFile(name.encode('utf-8'), 'http://humorplusz.hu' + link, 20, 'https://tv2.hu' + img, '', 'Humor+', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'Comedy', IsPlayable=True)
         except:
             pass
     if '/pager_next' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 18, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 18, '', '', description, str(int(page) + 1), keyword)
     return
 	
 def epizod_lista_jockytv():	
-    r = client.request(url + page)
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '23')
+    else:
+        addDir('[COLOR orange]''JockyTV szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 23, os.path.join(artPath, 'jocky.png'), '', description, page, keyword)
+
     result = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
     result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem'})
 
@@ -388,15 +429,20 @@ def epizod_lista_jockytv():
             cim = client.parseDOM(i, 'div', attrs={'class': 'cim'})[0]
             name = client.parseDOM(cim, 'a')[0]
             link = client.parseDOM(cim, 'a', ret='href')[0]
-            addFile(name.encode('utf-8'), 'http://jockytv.hu' + link, 20, 'https://tv2.hu' + img, '', 'Jocky TV', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img), '', 'Jocky TV', IsPlayable=True)
         except:
             pass
     if 'class="next"' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 23, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 23, '', '', description, str(int(page) + 1), keyword)
     return
 
 def epizod_lista_moziverzum():
-    r = client.request(url + page)
+    r = client.request("%s%s/oldal%s" % (url, keyword, page))
+    if len(keyword) == 0:
+        addDir('[COLOR orange]''Szűkítés''[/COLOR]', url, 29, '', '', description, '16')
+    else:
+        addDir('[COLOR orange]''Moziverzum szűrés: [COLOR lime]%s[/COLOR]''[/COLOR]' % urllib.unquote_plus(keyword), url, 16, os.path.join(artPath, 'moziverzum.png'), '', description, page, keyword)
+
     result = client.parseDOM(r, 'div', attrs={'class': 'leftblock'})
     result = client.parseDOM(result, 'div', attrs={'class': 'cikk_listaelem'})
 
@@ -406,53 +452,24 @@ def epizod_lista_moziverzum():
             cim = client.parseDOM(i, 'div', attrs={'class': 'cim'})[0]
             name = client.parseDOM(cim, 'a')[0]
             link = client.parseDOM(cim, 'a', ret='href')[0]
-            addFile(name.encode('utf-8'), 'https://tv2.hu/moziverzum/filmek/oldal' + link, 20, 'https://tv2.hu/' + img,  '', 'Moziverzum', IsPlayable=True)
+            addFile(name.encode('utf-8'), "%s%s" % (base_url, link), 20, "%s%s" % (base_url, img),  '', 'Moziverzum', IsPlayable=True)
         except:
             pass
     if 'class="next"' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 16, '', '', '', str(int(page) + 1))
+        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 16, '', '', description, str(int(page) + 1), keyword)
     return
 	
-def tenyek_adasok():
-    query = urlparse.urljoin(url, '/osszes_videok/oldal' + page + '&datumig=' + current_date)
-    r = client.request(query)
-    result = client.parseDOM(r, 'div', attrs={'class': 'listaelem_ta'})
-    for item in result:
-        try:
-            date = client.parseDOM(item, 'div', attrs={'class': 'datum'})[0].encode('utf-8')
-            
-            title = client.parseDOM(item, 'a')[-1]
-            title = re.search('>(.*)', title).group(1)
-            title = title.encode('utf-8')
-            
-            img = client.parseDOM(item, 'img', ret='src')[0].encode('utf-8')
-            if img.startswith('//'): img = 'http:' + img
-            
-            link = client.parseDOM(item, 'a', ret='href')[0].encode('utf-8')
-            link = urlparse.urljoin(url, link)
-
-            try: plot = client.parseDOM(item, 'div', attrs={'class': 'lead'})[0].encode('utf-8')
-            except: plot = ''
-
-            addFile('%s - %s' % (date, title), link, 20, img, os.path.join(artPath, 'tenyek_b.jpg'), plot, IsPlayable=True)
-        except:
-            pass
-
-    if 'class="next"' in r:
-        addDir('[COLOR green]''Következő oldal''[/COLOR]', url, 21, '', '', '', str(int(page) + 1))
-    return
-
 def getVideo():
     from resources.lib import m3u8_parser
     r = client.request(url)
     try:
         json_url = re.search('jsonUrl\s*=\s*[\'"]([^\'"]+)', r).group(1)
-        json_url = re.sub('^//', 'http://', json_url)
+        json_url = re.sub('^//', 'https://', json_url)
         r = client.request(json_url)
 
         json_data = json.loads(r)
         m3u_url = json_data['bitrates']['hls']
-        m3u_url = json_url = re.sub('^//', 'http://', m3u_url)
+        m3u_url = json_url = re.sub('^//', 'https://', m3u_url)
         r = client.request(m3u_url)
         
         root = os.path.dirname(m3u_url)
@@ -479,8 +496,8 @@ def getVideo():
     except:
         return
 
-def addDir(name, url, mode, iconimage, fanart, description, page):
-    u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&fanart="+urllib.quote_plus(fanart)+"&description="+urllib.quote_plus(description)+"&page="+urllib.quote_plus(page)
+def addDir(name, url, mode, iconimage, fanart, description, page, keyword=""):
+    u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&fanart="+urllib.quote_plus(fanart)+"&description="+urllib.quote_plus(description)+"&page="+urllib.quote_plus(page)+'&keyword='+urllib.quote_plus(keyword)
     liz=xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
     liz.setInfo( type="Video", infoLabels={ "Title": name, "Plot": description } )
     liz.setProperty( "Fanart_Image", fanart )
@@ -512,6 +529,26 @@ def get_params():
                 param[splitparams[0]]=splitparams[1]
     return param
 
+def getText(title, hidden=False):
+    search_text = ''
+    keyb = xbmc.Keyboard('', title, hidden)
+    keyb.doModal()
+
+    if (keyb.isConfirmed()):
+        search_text = keyb.getText()
+
+    return search_text
+
+def doSearch():
+    search_text = getText(u'Add meg a keresend\xF5 kifejez\xE9st')
+    if search_text != '':
+        global keyword
+        global page
+        functionIdx = page
+        keyword = urllib.quote_plus(search_text)
+        page = '1'
+        global mode2Sub
+        mode2Sub[int(functionIdx)]()
 	
 params = get_params()
 url = None
@@ -519,11 +556,11 @@ name = None
 mode = None
 iconimage = None
 fanart = None
-description = None
+description = ""
 page = None
 maxbitrate=0
 simpleDownloader=False
-
+keyword = ""
 
 try:
     url = urllib.unquote_plus(params["url"])
@@ -553,65 +590,39 @@ try:
     description = urllib.unquote_plus(params["description"])
 except:
     pass
+try:
+    keyword = urllib.unquote_plus(params["keyword"])
+except:
+    pass
+	
 
-	
-if mode==None:
-    main_folders()
-elif mode==1:
-    musor_listaTV2()
-elif mode==2:
-    musor_lista_TV2_class()
-elif mode==3:
-    musor_lista_sTV2()
-elif mode==4:
-    musor_lista_mplus()
-elif mode==5:
-    musor_lista_izaura()
-elif mode==6:
-    musor_lista_prime()
-elif mode==7:
-    epizod_lista_TV2()
-elif mode==8:
-    epizod_lista_TV2_class()
-elif mode==9:
-    epizod_lista_sTV2()
-elif mode==10:
-    epizod_lista_fem3()
-elif mode==11:
-    epizod_lista_mplus()
-elif mode==12:
-    epizod_lista_izaura()
-elif mode==13:
-    epizod_lista_prime()
-elif mode==14:
-    epizod_lista_chili()	
-elif mode==15:
-    epizod_lista_kiwitv()	
-elif mode==16:
-    epizod_lista_moziverzum()
-elif mode==17:
-    epizod_lista_zenebutik()
-elif mode==18:
-    epizod_lista_humorplusz()
-elif mode==19:
-    musor_lista_fem3()	
-elif mode==20:
-    getVideo()
-elif mode==21:
-    tenyek_adasok()	
-elif mode==22:
-    musor_lista_jockytv()
-elif mode==23:
-    epizod_lista_jockytv()	
-elif mode==24:
-	tv2_filmek()
-elif mode==25:
-    tv2_videok()
-elif mode==26:
-    supertv2_filmek()
-elif mode==27:
-    supertv2_videok()
-elif mode==28:
-    izaura_videok()
-	
+
+mode2Sub = {None: main_folders, 
+               1: musor_listaTV2, 
+               2: musor_lista_TV2_class, 
+               3: musor_lista_sTV2, 
+               4: musor_lista_mplus, 
+               5: musor_lista_izaura, 
+               7: epizod_lista_TV2, 
+               8: epizod_lista_TV2_class, 
+               9: epizod_lista_sTV2, 
+              10: epizod_lista_fem3, 
+              11: epizod_lista_mplus, 
+              12: epizod_lista_izaura, 
+              13: epizod_lista_prime, 
+              14: epizod_lista_sef, 
+              15: epizod_lista_kids, 
+              16: epizod_lista_moziverzum, 
+              17: epizod_lista_zenebutik, 
+              18: epizod_lista_comedy, 
+              19: musor_lista_fem3, 
+              20: getVideo, 
+              23: epizod_lista_jockytv, 
+              24: tv2_filmek, 
+              26: supertv2_filmek, 
+              27: supertv2_videok, 
+              28: izaura_videok, 
+              29: doSearch}
+
+mode2Sub[mode]()
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

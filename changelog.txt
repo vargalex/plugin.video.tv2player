@@ -1,3 +1,7 @@
+V1.0.7
+- szűrés megvalósítása
+- egyéb javítások/optimalizálások
+
 V1.0.6
 - TV2 teljes filmek javitva
 
