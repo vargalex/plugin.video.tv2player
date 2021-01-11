@@ -463,10 +463,13 @@ def getVideo():
     from resources.lib import m3u8_parser
     r = client.request(url)
     try:
-        json_url = re.search('jsonUrl\s*=\s*[\'"]([^\'"]+)', r).group(1)
-        json_url = re.sub('^//', 'https://', json_url)
+        try:
+            json_url = re.search('jsonUrl\s*=\s*[\'"]([^\'"]+)', r).group(1)
+            json_url = re.sub('^//', 'https://', json_url)
+        except:
+            json_url = re.findall(r'&q;originalUrl&q;:&q;([^}]*)&q;',r)
+            json_url = json_url[len(json_url)-1].replace("&a;", "&")
         r = client.request(json_url)
-
         json_data = json.loads(r)
         m3u_url = json_data['bitrates']['hls']
         m3u_url = json_url = re.sub('^//', 'https://', m3u_url)
@@ -625,4 +628,5 @@ mode2Sub = {None: main_folders,
               29: doSearch}
 
 mode2Sub[mode]()
-xbmcplugin.endOfDirectory(int(sys.argv[1]))
+if mode != 20:
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))

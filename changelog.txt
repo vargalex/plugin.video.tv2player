@@ -1,3 +1,6 @@
+V1.0.8
+- Tények (és esetleg más adások) lejátszásának javítása
+
 V1.0.7
 - szűrés megvalósítása
 - egyéb javítások/optimalizálások

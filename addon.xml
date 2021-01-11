@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.tv2player" name="TV2 Player" version="1.0.7" provider-name="toti189">
+<addon id="plugin.video.tv2player" name="TV2 Player" version="1.0.8" provider-name="toti189">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 	</requires>
